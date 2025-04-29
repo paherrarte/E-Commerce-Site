@@ -4,53 +4,101 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
 /* Header */
 header {
   background-color: #333;
   color: white;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
 }
 
 /* Navbar */
 nav {
-  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  font-weight: bold;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Search Bar Styling */
+/* Search Bar */
+.search-container {
+  position: relative;
+  width: 300px;
+  transition: all 0.3s ease;
+}
+
 .search-bar {
-  padding: 5px;
-  margin-left: 20px;
-  border-radius: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
   border: 1px solid #ccc;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.search-bar.expanded {
+  width: 100vw;
+  max-width: none;
+  border-radius: 8px;
+  outline: 2px solid #0071e3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  display: none;
+  z-index: 99;
+}
+
+.search-suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-suggestions li {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.search-suggestions li:hover {
+  text-decoration: underline;
+  color: #0071e3;
 }
 
 /* Main Layout */
 main {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Profile Main Container */
 .profile-main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  margin-top: 40px;
 }
 
 /* Profile Card */
@@ -76,8 +124,10 @@ main {
   font-size: 14px;
 }
 
-/* Profile Interests Section */
-.profile-interests {
+/* Shared Section Layout */
+.profile-interests,
+.profile-favorites,
+.profile-orders {
   background: white;
   padding: 25px;
   border-radius: 15px;
@@ -85,11 +135,14 @@ main {
   margin-bottom: 40px;
 }
 
-/* Interests Header */
-.interests-header {
+/* Section Headers */
+.interests-header,
+.favorites-header,
+.orders-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Edit Button */
@@ -133,124 +186,25 @@ main {
   color: white;
 }
 
-/* Interests Description */
 .interests-description {
   font-size: 14px;
   color: gray;
   margin-bottom: 20px;
 }
 
-/* Profile Images Section */
-.profile-images {
+/* Image Grid Layouts */
+.profile-images,
+.favorites-images,
+.orders-images {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-top: 20px;
 }
 
-/* Each Interest Item */
-.interest-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.interest-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-/* Interest Image Styling */
-.interest-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Interest Label under Image */
-.interest-label {
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  text-align: center;
-  color: #333;
-}
-
-/* Favorites Section */
-.profile-favorites {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-}
-
-.favorites-header {
-  margin-bottom: 20px;
-}
-
-.favorites-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.favorite-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.favorite-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.favorite-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.favorite-label {
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  text-align: center;
-  color: #333;
-}
-
-/* Previous Orders Section */
-.profile-orders {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-}
-
-.orders-header {
-  margin-bottom: 20px;
-}
-
-.orders-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
+/* Shared Item Style */
+.interest-item,
+.favorite-item,
 .order-item {
   display: flex;
   flex-direction: column;
@@ -262,11 +216,15 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.interest-item:hover,
+.favorite-item:hover,
 .order-item:hover {
   transform: scale(1.03);
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+.interest-img,
+.favorite-img,
 .order-img {
   width: 100%;
   height: 200px;
@@ -274,6 +232,8 @@ main {
   border-radius: 10px;
 }
 
+.interest-label,
+.favorite-label,
 .order-label {
   margin-top: 10px;
   font-weight: 600;
@@ -281,115 +241,68 @@ main {
   text-align: center;
   color: #333;
 }
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+/* ===== Login Page Styling ===== */
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 10px;
+}
+
+.login-container p {
   margin-bottom: 20px;
 }
 
-/*login form*/
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    background-color: gray;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  nav {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  .search-bar {
-    padding: 5px;
-    border-radius: 4px;
-    border: none;
-    margin-left: 10px;
-  }
-  
-  main {
-    max-width: 400px;
-    margin: 40px auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  p {
-    text-align: center;
-  }
-  
-  /* Login form styles */
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .login-form label {
-    font-weight: bold;
-  }
-  
-  .login-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  
-  .login-form button {
-    padding: 10px;
-    background-color: gray;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .login-form button:hover {
-    background-color: lightgray;
-  }
-  
-  .login-form p {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  
-  .login-form a {
-    color: #1e90ff;
-    text-decoration: none;
-  }
-  
-  .login-form a:hover {
-    text-decoration: underline;
-  }
+.login-form label {
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: #777;
+}
+
+.login-form p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-form a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.login-form a:hover {
+  text-decoration: underline;
+}
