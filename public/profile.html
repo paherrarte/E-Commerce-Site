@@ -17,7 +17,21 @@
       <a href="profile.html">Profile</a>
       <a href="login.html">Login</a>
       <a href="about.html">About</a>
-      <input type="text" placeholder="Search..." class="search-bar">
+      <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-bar" id="searchInput" onfocus="expandSearch()"
+          onblur="collapseSearch()">
+        <div class="search-suggestions" id="suggestions">
+          <p>Suggested:</p>
+          <ul>
+            <li>Running Shoes</li>
+            <li>Compression Shorts</li>
+            <li>Dry-Fit Shirts</li>
+            <li>Track Suits</li>
+            <li>Gym Bags</li>
+          </ul>
+        </div>
+      </div>
+
     </nav>
   </header>
 
@@ -118,6 +132,22 @@
     </section>
 
   </main>
+  <script>
+    function expandSearch() {
+      const input = document.getElementById('searchInput');
+      const suggestions = document.getElementById('suggestions');
+      input.classList.add('expanded');
+      suggestions.style.display = 'block';
+    }
+
+    function collapseSearch() {
+      const input = document.getElementById('searchInput');
+      const suggestions = document.getElementById('suggestions');
+      input.classList.remove('expanded');
+      suggestions.style.display = 'none';
+    }
+  </script>
+
 </body>
 
 </html>
