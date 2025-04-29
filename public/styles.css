@@ -39,7 +39,9 @@ nav a:hover {
 .search-container {
   position: relative;
   width: 300px;
+  max-width: 100%;
   transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 .search-bar {
@@ -51,22 +53,25 @@ nav a:hover {
 }
 
 .search-bar.expanded {
+  position: absolute;
+  top: 60px;
+  left: 0;
   width: 100vw;
-  max-width: none;
+  z-index: 100;
   border-radius: 8px;
   outline: 2px solid #0071e3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .search-suggestions {
   position: absolute;
   top: 110%;
   left: 0;
-  right: 0;
+  width: 100vw;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
   display: none;
   z-index: 99;
 }
@@ -78,8 +83,8 @@ nav a:hover {
 }
 
 .search-suggestions li {
-  padding: 5px 0;
-  font-size: 14px;
+  padding: 8px 0;
+  font-size: 15px;
   color: #333;
   cursor: pointer;
 }
@@ -176,7 +181,7 @@ main {
   font-size: 14px;
   font-weight: 500;
   color: #333;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
