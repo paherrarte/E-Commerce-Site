@@ -18,20 +18,23 @@
       <input type="text" placeholder="Search..." class="search-bar">
     </nav>
   </header>
+
   <main>
-    <h2>Login / Register</h2>
-    <p>Access your account or create a new one.</p>
+    <section class="login-container">
+      <h2>Login / Register</h2>
+      <p>Access your account or create a new one.</p>
 
-    <form action="login-handler.php" method="post" class="login-form">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <form action="login-handler.php" method="post" class="login-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="register.html">Join now</a></p>
-    </form>
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="register.html">Join now</a></p>
+      </form>
+    </section>
   </main>
 </body>
 </html>
