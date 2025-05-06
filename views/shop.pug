@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  main
+    h2 Shop Our Collection
+    p Welcome to the shop, #{user.email}
+    .products
+      each val, i in [1,2,3,4]
+        img(src=`/images/placeholder${i}.jpg`, alt=`Product ${i}`, class='product')
