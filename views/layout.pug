@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Sportify
+    link(rel="stylesheet", href="/styles.css")
+  body
+    header
+      h1 Sportify
+      nav
+        a(href="/home") Home
+        a(href="/shop") Shop
+        a(href="/profile") Profile
+        a(href="/about") About
+        if !user
+          a(href="/login") Login
+        else
+          a(href="/logout") Logout
+        <input type="text" placeholder="Search..." class="search-bar">
+    block content

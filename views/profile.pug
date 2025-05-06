@@ -1,0 +1,91 @@
+extends layout
+
+block content
+  main.profile-main
+    section.profile-card
+      .interests-header
+        h3 Profile
+        button.edit-btn Edit
+      img.profile-pic-big(src='/images/IMG_2291.jpeg', alt='Profile Picture')
+      h2 Pablo Herrarte
+      p.member-info Sportify Member Since January 2018
+
+    section.profile-interests
+      .interests-header
+        h3 Interests
+        button.edit-btn Edit
+
+      .interest-tags
+        .tag All
+        .tag National Teams Kits
+        .tag Barcelona Kits
+        .tag Gym
+        .tag Shirts
+        .tag Pants
+
+      p.interests-description
+        Add your interests to shop a collection of products that are based on what you're into.
+
+      section.profile-images
+        .interest-item
+          img.interest-img(src='/images/messi.jpg', alt='National Teams Kits')
+          p.interest-label National Teams Kits
+
+        .interest-item
+          img.interest-img(src='/images/barcelona.jpg', alt='Barcelona Kits')
+          p.interest-label Barcelona Kits
+
+        .interest-item
+          img.interest-img(src='/images/gym.jpg', alt='Gym')
+          p.interest-label Gym
+
+    section.profile-favorites
+      .favorites-header
+        h3 Favorites
+        button.edit-btn Edit
+
+      section.favorites-images
+        .favorite-item
+          img.favorite-img(src='/images/jacket.jpg', alt='Favorite Item 1')
+          p.favorite-label Bape Jacket
+
+        .favorite-item
+          img.favorite-img(src='/images/shoes.jpg', alt='Favorite Item 2')
+          p.favorite-label Jordan Shoes
+
+        .favorite-item
+          img.favorite-img(src='/images/jersey.jpg', alt='Favorite Item 3')
+          p.favorite-label Jerseys
+
+    section.profile-orders
+      .orders-header
+        h3 Previous Orders
+        button.edit-btn See More
+
+      section.orders-images
+        .order-item
+          img.order-img(src='/images/hoodie.jpg', alt='Order Item 1')
+          p.order-label Essentials Hoodie
+
+        .order-item
+          img.order-img(src='/images/socks.jpg', alt='Order Item 2')
+          p.order-label Athletic Socks
+
+        .order-item
+          img.order-img(src='/images/track-pants.jpg', alt='Order Item 3')
+          p.order-label Athletic Fit Track Pants
+
+  script.
+    function expandSearch() {
+      const input = document.getElementById('searchInput');
+      const suggestions = document.getElementById('suggestions');
+      input.classList.add('expanded');
+      suggestions.style.display = 'block';
+    }
+
+    function collapseSearch() {
+      const input = document.getElementById('searchInput');
+      const suggestions = document.getElementById('suggestions');
+      input.classList.remove('expanded');
+      suggestions.style.display = 'none';
+    }

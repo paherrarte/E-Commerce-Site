@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .login-container
+    h2 Login
+    form(method="POST", action="/login").login-form
+      label(for="email") Email:
+      input(type="email", name="email", required)
+      label(for="password") Password:
+      input(type="password", name="password", required)
+      button(type="submit") Login
+    if error
+      p(style="color:red")= error
+    p Don't have an account? 
+      a(href="/register") Join now f
