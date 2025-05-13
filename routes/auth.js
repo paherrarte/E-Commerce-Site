@@ -76,16 +76,6 @@ router.get('/home', (req, res) => {
   });
 });
 
-//shop
-router.get('/shop', (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/'); 
-  }
-  res.render('shop', { 
-    user: req.session.user 
-  });
-});
-
 //about
 router.get('/about', (req, res) => {
   if (!req.session.user) {

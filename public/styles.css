@@ -1,57 +1,67 @@
-/* General Reset */
-body {
-  background-color: #f6f7fb;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-
 /* Header */
 header {
   background-color: #333;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
+}
+
+/* Header Title */
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Navigation and Search Wrapper */
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  background-color: #333;
 }
 
 /* Navbar */
 nav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Search Bar */
+/* Search Container */
 .search-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 300px;
   max-width: 100%;
-  transition: all 0.3s ease;
-  margin-top: 10px;
 }
 
 .search-bar {
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  transition: all 0.3s ease;
   width: 100%;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
+/* Expanded Search Bar (optional) */
 .search-bar.expanded {
   position: absolute;
   top: 60px;
@@ -63,6 +73,7 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Suggestions */
 .search-suggestions {
   position: absolute;
   top: 110%;
@@ -92,13 +103,6 @@ nav a:hover {
 .search-suggestions li:hover {
   text-decoration: underline;
   color: #0071e3;
-}
-
-/* Main Layout */
-main {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* Profile Main Container */
@@ -310,4 +314,232 @@ main {
 
 .login-form a:hover {
   text-decoration: underline;
+}
+
+/* === Reset & Base === */
+body {
+  background-color: #f6f7fb;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* === Header & Nav === */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  width: 300px;
+}
+
+/* === Cart Dropdown === */
+.cart-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+}
+
+.cart-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 250px;
+  z-index: 1000;
+}
+
+.cart-menu.hidden {
+  display: none;
+}
+
+.cart-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.cart-total {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* === Shop Page Grid === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* === Product Card Styling === */
+.product-card {
+  background-color: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0 5px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 10px;
+}
+
+.product-card .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-card button:hover {
+  background-color: #444;
+}
+
+/* === Login Page === */
+.login-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.login-form label {
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-form button {
+  padding: 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: #777;
+}
+
+/* === Profile Sections (Reused Style) === */
+.profile-main,
+.profile-card,
+.profile-interests,
+.profile-favorites,
+.profile-orders {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic-big {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.edit-btn {
+  background: none;
+  border: 1px solid #0071e3;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #0071e3;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #0071e3;
+  color: white;
 }
