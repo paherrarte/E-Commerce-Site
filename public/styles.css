@@ -35,7 +35,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Search Bar */
+/* Search Container */
 .search-container {
   position: relative;
   width: 300px;
@@ -310,4 +310,123 @@ main {
 
 .login-form a:hover {
   text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === Cart Dropdown === */
+.cart-dropdown {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  display: inline-block;
+}
+
+.cart-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 250px;
+  z-index: 1000;
+  color: black; 
+}
+
+.cart-menu.hidden {
+  display: none;
+}
+
+.cart-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.cart-total {
+  font-weight: bold;
+  text-align: right;
+}
+
+/* === Shop Page Grid === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* === Product Card Styling === */
+.product-card {
+  background-color: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0 5px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 10px;
+}
+
+.product-card .price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.product-card button:hover {
+  background-color: #444;
 }

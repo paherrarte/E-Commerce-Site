@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  .container.mt-4
+    h1.text-center.mb-4 Checkout
+    .row
+      .col-md-8
+        .card.mb-4
+          .card-header
+            h4 Order Summary
+          .card-body
+            table.table
+              thead
+                tr
+                  th Product
+                  th Quantity
+                  th Price
+                  th Subtotal
+              tbody
+                each item in cart
+                  tr
+                    td= item.name
+                    td= item.quantity
+                    td $#{item.price.toFixed(2)}
+                    td $#{(item.price * item.quantity).toFixed(2)}
+            .text-end
+              h4 Total: $#{total.toFixed(2)}
+      
+      .col-md-4
+        .card
+          .card-header
+            h4 Payment Information
+          .card-body
+            form#checkout-form
+              .mb-3
+                label.form-label(for='cardName') Name on Card
+                input#cardName.form-control(type='text' required)
+              .mb-3
+                label.form-label(for='cardNumber') Card Number
+                input#cardNumber.form-control(type='text' placeholder='1234 5678 9012 3456' required)
+              .row
+                .col-md-6.mb-3
+                  label.form-label(for='expiry') Expiry Date
+                  input#expiry.form-control(type='text' placeholder='MM/YY' required)
+                .col-md-6.mb-3
+                  label.form-label(for='cvv') CVV
+                  input#cvv.form-control(type='text' placeholder='123' required)
+              button.btn.btn-success.w-100(type='submit') Place Order
+
+    script.
+      document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+          const response = await fetch('/process-checkout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({}),
+          });
+          const data = await response.json();
+          if (data.success) {
+            alert('Order placed successfully!');
+            window.location.href = '/';
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to process order');
+        }
+      }); 
