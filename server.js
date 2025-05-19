@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const session = require('express-session');
 const authRoutes = require('./routes/auth');
+const shopRoutes = require('./routes/shop');
 
 //for user image uploads
 const fileUpload = require('express-fileupload');
@@ -28,6 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //routes
 app.use('/', authRoutes);
+app.use('/', shopRoutes);
 
 // Default route
 app.get('/', (req, res) => {
