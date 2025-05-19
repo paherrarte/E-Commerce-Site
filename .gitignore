@@ -1,4 +1,4 @@
 node_modules/
-database.sqlite/
+database.sqlite
 public/user-uploads/
 !public/user-uploads/.gitkeep
