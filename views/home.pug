@@ -3,4 +3,8 @@ extends layout
 block content
   main
     h2 Welcome to Sportify!
+    if user
+      p Hello #{user.email}
+    else 
+      p Welcome guest
     p Your gateway to personalized fitness.

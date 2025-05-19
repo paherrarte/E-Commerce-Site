@@ -5,9 +5,16 @@ block content
     section.profile-card
       .interests-header
         h3 Profile
-        button.edit-btn Edit
-      img.profile-pic-big(src='/images/IMG_2291.jpeg', alt='Profile Picture')
-      h2 Pablo Herrarte
+        //button.edit-btn(type="button", onclick="toggleSidebar()") Edit
+        button.edit-btn(id="profile-edit-btn", type="button", onclick="toggleEdit()") Edit
+       
+      img.profile-pic-big(src=(user.profilePic), alt='Profile Picture')
+
+      form(id="profile-form", action='/upload-profile-pic', method='POST', enctype='multipart/form-data', style='display:none;')
+        input(type='file', name='profilePic', accept='image/*')
+        button(if="profile-submit-btn", type='submit', onclick="toggleEdit()") Save
+
+      h2 #{user.email}
       p.member-info Sportify Member Since January 2018
 
     section.profile-interests
@@ -88,4 +95,14 @@ block content
       const suggestions = document.getElementById('suggestions');
       input.classList.remove('expanded');
       suggestions.style.display = 'none';
+    }
+
+    function toggleEdit() {
+      const profileForm = document.getElementById('profile-form');
+
+      if (profileForm.style.display == 'none' || profileForm.style.display === '') {
+        profileForm.style.display = 'block';
+      } else {
+        profileForm.style.display = 'none';
+      }
     }

@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../database');
+const path = require('path');
+const fs = require('fs');
 
 //login form
 router.get('/login', (req, res) => {
@@ -18,7 +20,7 @@ router.post('/login', (req, res) => {
 
     bcrypt.compare(password, user.password, (err, result) => {
       if (result) {
-        req.session.user = { id: user.id, email: user.email };
+        req.session.user = { id: user.id, email: user.email, profilePic: user.profilePic };
         res.redirect('/profile');
       } else {
         res.render('login', { error: 'Invalid credentials' });
@@ -44,7 +46,8 @@ router.post('/register', (req, res) => {
         const msg = err.message.includes('UNIQUE') ? 'Email already exists' : 'Registration failed';
         return res.render('register', { error: msg });
       }
-      req.session.user = { id: this.lastID, email };
+
+      req.session.user = { id: this.lastID, email, profilePic: '/images/default-profile-pic.jpg' };
       res.redirect('/profile');
     });
   });
@@ -52,12 +55,9 @@ router.post('/register', (req, res) => {
 
 //profile
 router.get('/profile', (req, res) => {
-  if (!req.session.user) {
-    return res.redirect('/login'); 
-  }
-  res.render('profile', { 
-    user: req.session.user 
-  });
+  if (!req.session.user) {return res.redirect('/login'); }
+
+  res.render('profile', {user: req.session.user});
 });
 
 //logout
@@ -78,12 +78,44 @@ router.get('/home', (req, res) => {
 
 //about
 router.get('/about', (req, res) => {
+  res.render('about', {
+    user: req.session.user || null
+  });
+});
+
+//profile picture upload
+router.post('/upload-profile-pic', (req, res) => {
   if (!req.session.user) {
     return res.redirect('/'); 
   }
-  res.render('about', { 
-    user: req.session.user 
+  
+  if (!req.files || !req.files.profilePic) {
+    return res.status(400).send('Please choose an Image.');
+  }
+
+  const file = req.files.profilePic;
+  const uploadPath = path.join(__dirname, '../public/user-uploads', file.name);
+  const relativePath = `/user-uploads/${file.name}`;
+
+  //move image file to public/user-uploads
+  file.mv(uploadPath, err => {
+    if (err) return res.status(500).send(err);
+
+    //update database
+    db.run(`UPDATE users SET profilePic = ? WHERE id = ?`, [relativePath, req.session.user.id], err => {
+      if (err) return res.status(500).send('User image change failed.');
+      req.session.user.profilePic = relativePath;
+      res.redirect('/profile');
+    });
   });
 });
+
+
+
+
+
+
+
+
 
 module.exports = router;

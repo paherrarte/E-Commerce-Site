@@ -8,17 +8,16 @@ const db = new sqlite3.Database('./database.sqlite', (err) => {
   }
 });
 
-db.serialize(() => {
-  // Users table (already in your code)
-  db.run(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE NOT NULL,
-      password TEXT NOT NULL
-    )
-  `);
+db.run(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    profilePic TEXT DEFAULT '/images/default-profile-pic.jpg'
+  )`
+);
 
-  // Products table
+// Products table
   db.run(`
     CREATE TABLE IF NOT EXISTS products (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +39,6 @@ db.serialize(() => {
       FOREIGN KEY (product_id) REFERENCES products(id)
     )
   `);
-});
 
 // Close the connection when done (keep this for reference, but don't close until needed)
 // db.close((err) => {
