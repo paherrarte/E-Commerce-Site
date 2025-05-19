@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  main
+    h1.text-center Athletic Shop
+    .product-grid
+      each product in products
+        .product-card
+          img.product-image(src=product.image, alt=product.name)
+          .product-details
+            h5= product.name
+            p= product.description
+            p.price $#{product.price.toFixed(2)}
+            button.add-to-cart(data-product-id=product.id) Add to Cart
+
+  script.
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const productId = Number(e.target.dataset.productId);
+          try {
+            const response = await fetch('/add-to-cart', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ productId }),
+            });
+            const data = await response.json();
+            if (data.success) {
+              alert('Product added to cart!');
+              location.reload(); // Optional: reload to update cart
+            } else {
+              alert(data.error || 'Failed to add product to cart');
+            }
+          } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to add product to cart');
+          }
+        });
+      });
+    });
