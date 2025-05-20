@@ -431,57 +431,6 @@ main {
   background-color: #444;
 }
 
-.hero {
-  background: #e0f2fe;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 8px;
-  margin-bottom: 3rem;
-}
-
-.btn {
-  display: inline-block;
-  background: #2563eb;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  margin-top: 1rem;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: #1d4ed8;
-}
-
-.featured-products {
-  margin-top: 2rem;
-}
-
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.product {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  max-width: 300px;
-  text-align: center;
-}
-
-.product img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-}
-
 footer {
   text-align: center;
   padding: 2rem;
@@ -575,7 +524,74 @@ footer {
   border-top: 1px solid #e5e7eb;
 }
 
-th, td {
-  width: 15%;
-  text-align: left;
+/*about*/
+
+/* Container Styling */
+.about-page.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Header Styles */
+.about-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0073e6;
+  text-align: center;
+}
+
+/* Section Titles */
+.about-page h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0073e6;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+/* Paragraphs */
+.about-page p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Lists */
+.about-page ul {
+  margin: 0.5rem 0 1.5rem 1.5rem;
+  padding: 0;
+}
+
+.about-page li {
+  margin-bottom: 0.5rem;
+  list-style-type: disc;
+}
+
+/* Contact Links */
+.about-page a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.about-page a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .about-page.container {
+    padding: 1rem;
+  }
+
+  .about-page h1 {
+    font-size: 2rem;
+  }
+
+  .about-page h2 {
+    font-size: 1.5rem;
+  }
 }
