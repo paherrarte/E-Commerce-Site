@@ -4,3 +4,32 @@ block content
   main
     h2 Welcome to Sportify!
     p Your gateway to personalized fitness.
+
+    section.hero
+      h3 Discover Top Sports Gear
+      p From running shoes to yoga mats – find what moves you.
+      a.btn(href="/shop") Shop Now
+
+    section.featured-products
+      h3 Featured Products
+      .product-list
+        .product
+          img(src='/images/track-suit.jpg', alt="Track Suit")
+          h4 Track Suit
+          p $120
+          a.btn(href="/product/track-suit") View Details
+
+        .product
+          img(src="/images/jacket.jpg", alt="Bape Jacket")
+          h4 Bape Jacket
+          p $85
+          a.btn(href="/product/bape-jacket") View Details
+
+        .product
+          img(src="/images/jersey.jpg", alt="Jersey")
+          h4 Jersey
+          p $35
+          a.btn(href="/product/jersey") View Details
+
+    footer
+      p &copy; #{new Date().getFullYear()} Sportify. All rights reserved.
