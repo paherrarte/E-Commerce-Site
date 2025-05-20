@@ -574,3 +574,8 @@ footer {
   color: #6b7280;
   border-top: 1px solid #e5e7eb;
 }
+
+th, td {
+  width: 15%;
+  text-align: left;
+}
