@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  main
+  main.homepage.container
     h2 Welcome to Sportify!
     if user
       p Hello #{user.email}
@@ -15,25 +15,31 @@ block content
       a.btn(href="/shop") Shop Now
 
     section.featured-products
-      h3 Featured Products
-      .product-list
-        .product
-          img(src='/images/track-suit.jpg', alt="Track Suit")
-          h4 Track Suit
-          p $120
-          a.btn(href="/shop") View Details
+      h3.section-title Featured Products
 
-        .product
-          img(src="/images/jacket.jpg", alt="Bape Jacket")
-          h4 Bape Jacket
-          p $85
-          a.btn(href="/shop") View Details
+      .carousel#featured-carousel
+        .carousel-track-container
+          .carousel-track
+            .carousel-slide
+              img(src="/images/track-suit.jpg", alt="Track Suit")
+              h4 Track Suit
+              p $120
+              a.btn(href="/product/track-suit") View Details
 
-        .product
-          img(src="/images/jersey.jpg", alt="Jersey")
-          h4 Jersey
-          p $35
-          a.btn(href="/shop") View Details
+            .carousel-slide
+              img(src="/images/jacket.jpg", alt="Bape Jacket")
+              h4 Bape Jacket
+              p $85
+              a.btn(href="/product/bape-jacket") View Details
+
+            .carousel-slide
+              img(src="/images/jersey.jpg", alt="Jersey")
+              h4 Jersey
+              p $35
+              a.btn(href="/product/jersey") View Details
+
+        button.carousel-btn.prev &lt;
+        button.carousel-btn.next &gt;
 
     footer
       p &copy; #{new Date().getFullYear()} Sportify. All rights reserved.
