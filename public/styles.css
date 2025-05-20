@@ -595,3 +595,8 @@ footer {
     font-size: 1.5rem;
   }
 }
+
+th, td {
+  width: 15%;
+  text-align: left;
+}

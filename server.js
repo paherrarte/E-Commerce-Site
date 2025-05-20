@@ -5,6 +5,11 @@ const session = require('express-session');
 const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
 
+//for user image uploads
+const fileUpload = require('express-fileupload');
+app.use('/user-uploads', express.static(path.join(__dirname, 'public/user-uploads')));
+app.use(fileUpload());
+
 app.use(express.json());
 
 // Serve static files from the 'public' directory
