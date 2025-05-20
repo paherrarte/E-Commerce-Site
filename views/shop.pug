@@ -17,6 +17,8 @@ block content
             p= product.description
             p.price $#{product.price.toFixed(2)}
             button.add-to-cart(data-product-id=product.id) Add to Cart
+    footer
+      p &copy; #{new Date().getFullYear()} Sportify. All rights reserved.
 
   script.
     document.addEventListener('DOMContentLoaded', function() {
