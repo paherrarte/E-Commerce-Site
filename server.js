@@ -5,11 +5,6 @@ const session = require('express-session');
 const authRoutes = require('./routes/auth');
 const shopRoutes = require('./routes/shop');
 
-//for user image uploads
-const fileUpload = require('express-fileupload');
-app.use('/user-uploads', express.static(path.join(__dirname, 'public/user-uploads')));
-app.use(fileUpload());
-
 app.use(express.json());
 
 // Serve static files from the 'public' directory
@@ -28,12 +23,22 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 //routes
+app.get('/about', (req, res) => {
+  res.render('about'); // renders about.pug
+});
+
 app.use('/', authRoutes);
 app.use('/', shopRoutes);
+
 
 // Default route
 app.get('/', (req, res) => {
   res.render('home', { user: req.session.user });
+});
+
+// 
+app.get('/about', (req, res) => {
+  res.render('about', { user: req.session.user });
 });
 
 // Start the server
