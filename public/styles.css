@@ -430,3 +430,12 @@ main {
 .product-card button:hover {
   background-color: #444;
 }
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}

@@ -3,8 +3,19 @@ const router = express.Router();
 const db = require('../database');
 
 // Shop page route
+// Shop page route with search
 router.get('/shop', (req, res) => {
-  db.all('SELECT * FROM products', (err, products) => {
+  const search = req.query.search;
+  let query = 'SELECT * FROM products';
+  const params = [];
+
+  if (search) {
+    query += ' WHERE name LIKE ? OR description LIKE ?';
+    const wildcard = `%${search}%`;
+    params.push(wildcard, wildcard);
+  }
+
+  db.all(query, params, (err, products) => {
     if (err) {
       console.error('Error fetching products:', err.message);
       return res.status(500).send('Database error');
