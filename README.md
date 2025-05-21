@@ -2,4 +2,4 @@
 
 Site deployed via Glitch:  
 
-[https://e-commerce-site-sportify.glitch.me](https://e-commerce-site-sportify.glitch.me)
+https://e-commerce-site-sportify.glitch.me
