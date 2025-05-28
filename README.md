@@ -32,6 +32,6 @@ http://localhost:3000/
 
 # Team Members:
 
-- Reman Kooner
+- Reman Kooner — https://github.com/reman-kooner
 - Pablo Herrarte
 - Alexander Zepeda
