@@ -1,5 +1,7 @@
 # E-Commerce Site
 
+Sportify is a full stack e-commerce web application that allows the users to look at athletic products, register or log in, add to or remove from a shopping cart, and complete mock purchases. Built with Node.js, Express, and SQLite, and handles user sessions, profile customization, and cart functionality.
+
 Site deployed via Glitch:  
 
 https://e-commerce-site-sportify.glitch.me
